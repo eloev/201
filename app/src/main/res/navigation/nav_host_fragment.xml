@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_host_fragment"
+    app:startDestination="@id/navigation_first">
+
+    <fragment
+        android:id="@+id/navigation_first"
+        android:name="com.android.mpdev.vkrapp.ui.firstScreen.FirstFragment"
+        android:label="@string/title_read" />
+    <fragment
+        android:id="@+id/navigation_second"
+        android:name="com.android.mpdev.vkrapp.ui.secondScreen.SecondFragment"
+        android:label="@string/title_write" />
+</navigation>
