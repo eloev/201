@@ -1,0 +1,2 @@
+rootProject.name = "vkrapp"
+include ':app'
