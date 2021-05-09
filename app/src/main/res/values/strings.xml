@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">vkrapp</string>
+    <string name="title_read">Чтение</string>
+    <string name="title_write">Запись</string>
+    <string name="dialog_text_tag">Коснитесь меткой</string>
+    <string name="save_tag">Сохранить метку</string>
 </resources>

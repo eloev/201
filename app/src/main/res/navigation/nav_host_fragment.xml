@@ -12,4 +12,5 @@
         android:id="@+id/navigation_second"
         android:name="com.android.mpdev.vkrapp.ui.secondScreen.SecondFragment"
         android:label="@string/title_write" />
+
 </navigation>
