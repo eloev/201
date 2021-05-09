@@ -11,4 +11,9 @@
         android:id="@+id/navigation_second"
         android:title="@string/title_write" />
 
+    <item
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:id="@+id/navigation_pass"
+        android:title="@string/title_pass" />
+
 </menu>

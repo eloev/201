@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host_fragment"
     app:startDestination="@id/navigation_first">
 
@@ -12,5 +13,10 @@
         android:id="@+id/navigation_second"
         android:name="com.android.mpdev.vkrapp.ui.secondScreen.SecondFragment"
         android:label="@string/title_write" />
+    <fragment
+        android:id="@+id/navigation_pass"
+        android:name="com.android.mpdev.vkrapp.ui.pass.PassFragment"
+        android:label="@string/title_pass"
+        tools:layout="@layout/fragment_pass" />
 
 </navigation>

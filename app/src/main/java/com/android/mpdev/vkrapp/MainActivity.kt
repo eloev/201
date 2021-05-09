@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         // Передаём каждый айди как группу
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_first, R.id.navigation_second
+                R.id.navigation_first, R.id.navigation_second, R.id.navigation_pass
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -96,8 +96,13 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 )
                 val ndefMessage = ndefMessageArray?.get(0) as NdefMessage
                 val msg = String(ndefMessage.records[0].payload)
-                //set message
-                readViewModel?.setTagMessage(msg)
+                //отправляем сообщение в первый фрагмент
+                if (msg == "200"){
+
+                }
+                else{
+                    readViewModel?.setTagMessage(msg)
+                }
             } else {
                 readViewModel?.setTagMessage("Пустая или неисправная метка")
             }

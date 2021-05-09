@@ -4,4 +4,6 @@
     <string name="title_write">Запись</string>
     <string name="dialog_text_tag">Коснитесь меткой</string>
     <string name="save_tag">Сохранить метку</string>
+    <string name="title_pass">Вход</string>
+    <string name="pass_text">Прикоснитесь к метке входа</string>
 </resources>
