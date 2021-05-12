@@ -2,6 +2,7 @@ package com.android.mpdev.vkrapp.ui.pass
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import com.android.mpdev.vkrapp.R
 import com.android.mpdev.vkrapp.databinding.FragmentFirstBinding
 import com.android.mpdev.vkrapp.databinding.FragmentPassBinding
 import com.android.mpdev.vkrapp.ui.firstScreen.FirstViewModel
+
+private const val TAG = "PassActivity"
 
 class PassFragment : Fragment() {
 
@@ -31,17 +34,24 @@ class PassFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_pass, container, false)
-        var passIsVisible = true
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PassViewModel::class.java)
-        // TODO: Use the ViewModel
+        val bundle = Bundle()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+
+    override fun onResume() {
+        super.onResume()
+        passViewModel.passIsVisible = true
     }
 
+
+    override fun onStop() {
+        super.onStop()
+        passViewModel.passIsVisible = false
+    }
 }

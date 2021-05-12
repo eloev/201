@@ -7,6 +7,7 @@ import android.nfc.NfcAdapter
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -20,9 +21,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.mpdev.vkrapp.databinding.ActivityMainBinding
 import com.android.mpdev.vkrapp.ui.firstScreen.FirstViewModel
+import com.android.mpdev.vkrapp.ui.pass.PassViewModel
 import com.android.mpdev.vkrapp.ui.secondScreen.SecondViewModel
 import com.android.mpdev.vkrapp.utils.NFCUtilManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
+private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity(), LifecycleOwner {
 
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     private lateinit var readViewModel: FirstViewModel
     private lateinit var writeViewModel: SecondViewModel
+    private lateinit var passViewModel: PassViewModel
 
     private var nfcAdapter: NfcAdapter? = null
 
@@ -42,8 +47,11 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         setContentView(view)
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+
         readViewModel = ViewModelProvider(this).get(FirstViewModel::class.java)
         writeViewModel = ViewModelProvider(this).get(SecondViewModel::class.java)
+        passViewModel = ViewModelProvider(this).get(PassViewModel::class.java)
+
         lifeCycleRegistry = LifecycleRegistry(this)
         lifeCycleRegistry.markState(Lifecycle.State.CREATED)
 
@@ -96,9 +104,10 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 )
                 val ndefMessage = ndefMessageArray?.get(0) as NdefMessage
                 val msg = String(ndefMessage.records[0].payload)
-                //отправляем сообщение в первый фрагмент
-                if (msg == "200"){
-
+                //идентификация входа
+                if (msg == "200" && passViewModel.passIsVisible){
+                    onBackPressed()
+                    readViewModel?.setTagMessage("Вы выполнили вход")
                 }
                 else{
                     readViewModel?.setTagMessage(msg)
