@@ -33,7 +33,7 @@ class SecondFragment : Fragment() {
     private fun initUi() {
         context?.let {
             dialog = Dialog(it)
-        } ?: throw IllegalStateException("Сообщение не может быть нулевым")
+        } ?: throw IllegalStateException(getString(R.string.msg_empty))
 
         binding.saveTagButtonWrapper.setOnClickListener  {
             showDialog()

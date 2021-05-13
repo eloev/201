@@ -6,4 +6,13 @@
     <string name="save_tag">Сохранить метку</string>
     <string name="title_pass">Вход</string>
     <string name="pass_text">Прикоснитесь к метке входа</string>
+    //
+    <string name="pass_success">Вы выполнили вход</string>
+    <string name="write_success">Сообщение сохранено</string>
+    <string name="write_error">Не удалось сохранить сообщение. Попробуйте ещё раз</string>
+    <string name="read_empty">Пустая или неисправная метка</string>
+    <string name="nfc_disabled">Включите NFC в настройках</string>
+    <string name="msg_empty">Сообщение не может быть нулевым</string>
+    //
+
 </resources>

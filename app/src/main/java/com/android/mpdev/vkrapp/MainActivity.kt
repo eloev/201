@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     private var pendingIntent: PendingIntent? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         passViewModel = ViewModelProvider(this).get(PassViewModel::class.java)
 
         lifeCycleRegistry = LifecycleRegistry(this)
-        lifeCycleRegistry.markState(Lifecycle.State.CREATED)
+        lifeCycleRegistry.currentState = Lifecycle.State.CREATED
 
         val navView: BottomNavigationView = binding.navView
 
@@ -74,7 +75,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     override fun onResume() {
         super.onResume()
-        lifeCycleRegistry.markState(Lifecycle.State.RESUMED)
+        lifeCycleRegistry.currentState = Lifecycle.State.RESUMED
         enableNfc()
     }
 
@@ -92,9 +93,11 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
             writeViewModel?._closeDialog.value = true
 
             if (messageWrittenSuccessfully){
-                showToast("Сообщение сохранено")
+                //запись успешна
+                showToast(getString(R.string.write_success))
             } else {
-                showToast("Не удалось сохранить сообщение. Попробуйте ещё")
+                //запись неуспешна
+                showToast(getString(R.string.write_error))
             }
         } else {
             if(NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action){
@@ -107,13 +110,15 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 //идентификация входа
                 if (msg == "200" && passViewModel.passIsVisible){
                     onBackPressed()
-                    readViewModel?.setTagMessage("Вы выполнили вход")
+                    readViewModel?.setTagMessage(getString(R.string.pass_success))
                 }
                 else{
+                    //показываем сообщение
                     readViewModel?.setTagMessage(msg)
                 }
             } else {
-                readViewModel?.setTagMessage("Пустая или неисправная метка")
+                //Пустая метка
+                readViewModel?.setTagMessage(getString(R.string.read_empty))
             }
         }
     }
@@ -126,8 +131,9 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         if (nfcAdapter?.isEnabled == true) {
             nfcAdapter?.enableForegroundDispatch(this, pendingIntent, null, null)
         } else {
+            //выводим экран включения NFC
             startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
-            showToast("Включите NFC в настройках")
+            showToast(getString(R.string.nfc_disabled))
         }
     }
 
