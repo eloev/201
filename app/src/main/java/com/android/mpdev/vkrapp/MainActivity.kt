@@ -11,6 +11,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
@@ -58,15 +59,24 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
         val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Передаём каждый айди как группу
+
+        val navController = findNavController(R.id.host_fragment)
+        navView.setupWithNavController(navController)
+
+
+        /*
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_first, R.id.navigation_second, R.id.navigation_pass
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+         */
+
+        val toolbarMain: Toolbar = findViewById(R.id.toolbar_main)
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        toolbarMain.setupWithNavController(navController, appBarConfiguration)
+
         pendingIntent = PendingIntent.getActivity(
             this, 0, Intent(this, javaClass)
                 .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0

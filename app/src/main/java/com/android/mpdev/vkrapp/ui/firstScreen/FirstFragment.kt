@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import com.android.mpdev.vkrapp.R
 import com.android.mpdev.vkrapp.databinding.FragmentFirstBinding
-import com.android.mpdev.vkrapp.databinding.FragmentSecondBinding
+
 
 class FirstFragment : Fragment() {
 
