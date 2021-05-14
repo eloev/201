@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
@@ -21,7 +22,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.mpdev.vkrapp.databinding.ActivityMainBinding
-import com.android.mpdev.vkrapp.databinding.SidebarNavBinding
 import com.android.mpdev.vkrapp.ui.firstScreen.FirstViewModel
 import com.android.mpdev.vkrapp.ui.pass.PassViewModel
 import com.android.mpdev.vkrapp.ui.secondScreen.SecondViewModel
@@ -59,17 +59,17 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         lifeCycleRegistry.currentState = Lifecycle.State.CREATED
 
         val navView: BottomNavigationView = binding.navView
+        val sideBar = binding.sidebarNavView
+        val drawerLayout: DrawerLayout = binding.drawerLayout
 
         val navController = findNavController(R.id.host_fragment)
-        navView.setupWithNavController(navController)
-
         val toolbarMain: Toolbar = findViewById(R.id.toolbar_main)
-        val appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout = binding.drawerLayout)
+
+        val appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.navigation_first, R.id.navigation_second, R.id.navigation_pass), drawerLayout)
         toolbarMain.setupWithNavController(navController, appBarConfiguration)
-
-        val sideBar = binding.sidebarNavView
+        navView.setupWithNavController(navController)
         sideBar.setupWithNavController(navController)
-
 
         pendingIntent = PendingIntent.getActivity(
             this, 0, Intent(this, javaClass)
