@@ -8,11 +8,13 @@
     <fragment
         android:id="@+id/navigation_first"
         android:name="com.android.mpdev.vkrapp.ui.firstScreen.FirstFragment"
-        android:label="@string/title_read" />
+        android:label="@string/title_read"
+        tools:layout="@layout/fragment_first"/>
     <fragment
         android:id="@+id/navigation_second"
         android:name="com.android.mpdev.vkrapp.ui.secondScreen.SecondFragment"
-        android:label="@string/title_write" />
+        android:label="@string/title_write"
+        tools:layout="@layout/fragment_second"/>
     <fragment
         android:id="@+id/navigation_pass"
         android:name="com.android.mpdev.vkrapp.ui.pass.PassFragment"

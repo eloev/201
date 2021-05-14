@@ -14,5 +14,6 @@
     <string name="nfc_disabled">Включите NFC в настройках</string>
     <string name="msg_empty">Сообщение не может быть нулевым</string>
     //
+    <string name="service_item_draw_menu">Внутренняя кухня</string>
 
 </resources>

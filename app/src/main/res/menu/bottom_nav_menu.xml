@@ -3,13 +3,13 @@
 
     <item
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:id="@+id/navigation_first"
-        android:title="@string/title_read" />
+        android:id="@+id/navigation_second"
+        android:title="@string/title_write" />
 
     <item
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:id="@+id/navigation_second"
-        android:title="@string/title_write" />
+        android:id="@+id/navigation_first"
+        android:title="@string/title_read" />
 
     <item
         android:icon="@drawable/ic_dashboard_black_24dp"
