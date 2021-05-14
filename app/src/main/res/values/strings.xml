@@ -15,5 +15,7 @@
     <string name="msg_empty">Сообщение не может быть нулевым</string>
     //
     <string name="service_item_draw_menu">Внутренняя кухня</string>
+    <string name="username">Тони Монтана</string>
+    <string name="login">+79672691727</string>
 
 </resources>

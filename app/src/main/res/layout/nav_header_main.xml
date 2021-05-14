@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@color/black"
+    android:background="@drawable/sidebar_gradient"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
@@ -14,23 +14,30 @@
     android:gravity="bottom">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:paddingTop="8dp"
-        app:srcCompat="@mipmap/ic_launcher_round"
-        android:contentDescription="ssss"
-        android:id="@+id/imageView" />
+        app:srcCompat="@drawable/ic_pass"
+        android:id="@+id/login_image" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="dddd"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:id="@+id/username_textview"
+        android:text="@string/username"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowRadius="3"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ffff"
-        android:id="@+id/textView" />
+        android:id="@+id/login_textview"
+        android:text="@string/login"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowRadius="3"/>
 </LinearLayout>
