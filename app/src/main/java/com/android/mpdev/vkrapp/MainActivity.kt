@@ -4,12 +4,10 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -19,7 +17,6 @@ import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.mpdev.vkrapp.databinding.ActivityMainBinding
 import com.android.mpdev.vkrapp.ui.firstScreen.FirstViewModel
@@ -41,7 +38,6 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     private var nfcAdapter: NfcAdapter? = null
 
     private var pendingIntent: PendingIntent? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +62,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         val toolbarMain: Toolbar = findViewById(R.id.toolbar_main)
 
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_first, R.id.navigation_second, R.id.navigation_pass), drawerLayout)
+            R.id.navigation_first, R.id.navigation_second, R.id.navigation_pass, R.id.navigation_receipt, R.id.navigation_bonus), drawerLayout)
         toolbarMain.setupWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         sideBar.setupWithNavController(navController)

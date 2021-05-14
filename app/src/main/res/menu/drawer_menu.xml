@@ -9,6 +9,14 @@
             android:icon="@drawable/ic_pass"
             android:id="@+id/navigation_pass"
             android:title="@string/title_pass" />
+        <item
+            android:icon="@drawable/ic_receipt"
+            android:id="@+id/navigation_receipt"
+            android:title="@string/title_receipt" />
+        <item
+            android:icon="@drawable/ic_bonuses"
+            android:id="@+id/navigation_bonus"
+            android:title="@string/title_bonus" />
 
     </group>
 

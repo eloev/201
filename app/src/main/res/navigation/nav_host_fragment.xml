@@ -20,5 +20,15 @@
         android:name="com.android.mpdev.vkrapp.ui.pass.PassFragment"
         android:label="@string/title_pass"
         tools:layout="@layout/fragment_pass" />
+    <fragment
+        android:id="@+id/navigation_receipt"
+        android:name="com.android.mpdev.vkrapp.ui.receipt.ReceiptFragment"
+        android:label="@string/title_receipt"
+        tools:layout="@layout/fragment_receipt"/>
+    <fragment
+        android:id="@+id/navigation_bonus"
+        android:name="com.android.mpdev.vkrapp.ui.bonus.BonusFragment"
+        android:label="@string/title_bonus"
+        tools:layout="@layout/fragment_bonus" />
 
 </navigation>
