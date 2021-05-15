@@ -8,6 +8,7 @@
     <string name="title_receipt">Чеки</string>
     <string name="title_bonus">Бонусы</string>
     <string name="pass_text">Прикоснитесь к метке входа</string>
+    <string name="title_main">Главная</string>
     //
     <string name="pass_success">Вы выполнили вход</string>
     <string name="write_success">Сообщение сохранено</string>
@@ -19,7 +20,9 @@
     <string name="service_item_draw_menu">Внутренняя кухня</string>
     <string name="username">Тони Монтана</string>
     <string name="login">+79672691727</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username_main">Привет, Тони</string>
+    //Content Description
+    <string name="cd_user_logo">Аватар</string>
+    <string name="cd_promo_img">Акции</string>
 
 </resources>

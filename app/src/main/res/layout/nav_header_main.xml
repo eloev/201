@@ -17,7 +17,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:paddingTop="8dp"
-        app:srcCompat="@drawable/ic_pass"
+        app:srcCompat="@mipmap/tony"
         android:id="@+id/login_image" />
 
     <TextView

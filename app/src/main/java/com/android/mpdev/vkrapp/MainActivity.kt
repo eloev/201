@@ -29,7 +29,7 @@ private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity(), LifecycleOwner {
 
-    private lateinit var lifeCycleRegistry : LifecycleRegistry
+    private lateinit var lifeCycleRegistry: LifecycleRegistry
 
     private lateinit var readViewModel: FirstViewModel
     private lateinit var writeViewModel: SecondViewModel
@@ -61,8 +61,14 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         val navController = findNavController(R.id.host_fragment)
         val toolbarMain: Toolbar = findViewById(R.id.toolbar_main)
 
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_first, R.id.navigation_second, R.id.navigation_pass, R.id.navigation_receipt, R.id.navigation_bonus), drawerLayout)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_pass,
+                R.id.navigation_receipt,
+                R.id.navigation_bonus,
+                R.id.navigation_main
+            ), drawerLayout
+        )
         toolbarMain.setupWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         sideBar.setupWithNavController(navController)
@@ -88,11 +94,12 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         super.onNewIntent(intent)
 
         if (writeViewModel?.isWriteTagOptionOn) {
-            val messageWrittenSuccessfully = NFCUtilManager.createNFCMessage(writeViewModel?.messageToSave, intent)
+            val messageWrittenSuccessfully =
+                NFCUtilManager.createNFCMessage(writeViewModel?.messageToSave, intent)
             writeViewModel?.isWriteTagOptionOn = false
             writeViewModel?._closeDialog.value = true
 
-            if (messageWrittenSuccessfully){
+            if (messageWrittenSuccessfully) {
                 //запись успешна
                 showToast(getString(R.string.write_success))
             } else {
@@ -100,7 +107,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 showToast(getString(R.string.write_error))
             }
         } else {
-            if(NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action){
+            if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action) {
                 // Проверяем в какой фрагмент отправка
                 val ndefMessageArray = intent.getParcelableArrayExtra(
                     NfcAdapter.EXTRA_NDEF_MESSAGES
@@ -108,11 +115,10 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 val ndefMessage = ndefMessageArray?.get(0) as NdefMessage
                 val msg = String(ndefMessage.records[0].payload)
                 //идентификация входа
-                if (msg == "200" && passViewModel.passIsVisible){
+                if (msg == "200" && passViewModel.passIsVisible) {
                     onBackPressed()
                     readViewModel?.setTagMessage(getString(R.string.pass_success))
-                }
-                else{
+                } else {
                     //показываем сообщение
                     readViewModel?.setTagMessage(msg)
                 }
