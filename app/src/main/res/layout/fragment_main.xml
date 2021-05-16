@@ -91,18 +91,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/main_promo_img"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_promo_rv"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="240dp"
         android:layout_marginEnd="56dp"
+        android:contentDescription="@string/cd_promo_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/promo1"
-        android:contentDescription="@string/cd_promo_img" />
+        tools:listitem="@layout/main_img_item" />
 
     <ImageView
         android:id="@+id/main_promo_gradient"
@@ -111,11 +111,11 @@
         android:layout_marginStart="46dp"
         android:layout_marginTop="350dp"
         android:layout_marginEnd="46dp"
+        android:contentDescription="@string/cd_promo_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sidebar_gradient"
-        android:contentDescription="@string/cd_promo_img" />
+        app:srcCompat="@drawable/sidebar_gradient" />
 
     <TextView
         android:id="@+id/main_promo_tv"
