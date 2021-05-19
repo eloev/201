@@ -1,5 +1,7 @@
 package com.android.mpdev.vkrapp.ui.receipt
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,21 +10,22 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mpdev.vkrapp.R
 import com.android.mpdev.vkrapp.databinding.ReceiptItemBinding
+import java.text.SimpleDateFormat
 
-class RecyclerAdapter (private val names: List<String>) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>()
-{
+class RecyclerAdapter(var receipts: List<Receipt>) :
+    RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     private lateinit var _binding: ReceiptItemBinding
 
     private val binding get() = _binding
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var receiptItemTv: TextView? = null
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var receiptItemDate: TextView? = null
         var receiptItemPrice: TextView? = null
         var receiptItemImg: ImageView? = null
 
         init {
-            receiptItemTv = itemView.findViewById(R.id.receipt_item_tv)
+            receiptItemDate = itemView.findViewById(R.id.receipt_item_date)
             receiptItemPrice = itemView.findViewById(R.id.receipt_item_price)
             receiptItemImg = itemView.findViewById(R.id.receipt_item_img)
         }
@@ -35,12 +38,14 @@ class RecyclerAdapter (private val names: List<String>) : RecyclerView.Adapter<R
         return MyViewHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.receiptItemTv?.text = names[position]
-        holder.receiptItemPrice?.text = "кот"
+        var sdf = SimpleDateFormat("hh:mm, dd/MM/yyyy")
+        holder.receiptItemDate?.text = (sdf.format(receipts[position].date)).toString()
+        holder.receiptItemPrice?.text = (receipts[position].price).toString() + "₽"
     }
 
     override fun getItemCount(): Int {
-        return names.size
+        return receipts.size
     }
 }

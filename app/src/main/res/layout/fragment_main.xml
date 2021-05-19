@@ -36,7 +36,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="300dp"
         android:clickable="true"
         android:contentDescription="@string/cd_user_logo"
@@ -44,19 +44,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_bonuses" />
+        app:srcCompat="@drawable/ic_bonuses"
+        app:tint="@color/colorPrimary" />
 
+    <TextView
+        android:id="@+id/main_bonus_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="300dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/main_bonus_count"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/main_bonus_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="110dp"
         android:layout_marginEnd="300dp"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/title_bonus"
-        android:textSize="14sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +81,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="300dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="62dp"
         android:clickable="true"
         android:contentDescription="@string/cd_user_logo"
@@ -74,19 +89,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_receipt" />
+        app:srcCompat="@drawable/ic_receipt"
+        app:tint="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/main_receipt_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="62dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/main_receipt_count"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/main_receipt_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="300dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="110dp"
         android:layout_marginEnd="62dp"
         android:clickable="true"
         android:focusable="true"
-        android:text="@string/title_receipt"
-        android:textSize="14sp"
+        android:text="@string/main_receipt_tv"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -95,8 +126,8 @@
         android:id="@+id/main_promo_rv"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="56dp"
         android:contentDescription="@string/cd_promo_img"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,26 +135,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/main_img_item" />
 
-    <ImageView
-        android:id="@+id/main_promo_gradient"
+    <TextView
+        android:id="@+id/main_promo_tv"
         android:layout_width="320dp"
         android:layout_height="80dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="230dp"
         android:layout_marginEnd="46dp"
-        android:contentDescription="@string/cd_promo_img"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sidebar_gradient" />
-
-    <TextView
-        android:id="@+id/main_promo_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="355dp"
-        android:layout_marginEnd="56dp"
+        android:gravity="center"
+        android:background="@drawable/sidebar_gradient"
         android:clickable="true"
         android:focusable="true"
         android:textColor="@color/white"
@@ -131,6 +151,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="2+1 water" />
+        tools:text="2+1 напитки" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

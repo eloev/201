@@ -35,5 +35,9 @@
         android:name="com.android.mpdev.vkrapp.ui.main.MainFragment"
         android:label="@string/title_main"
         tools:layout="@layout/fragment_main" />
-
+    <fragment
+        android:id="@+id/navigation_receiptAdd"
+        android:name="com.android.mpdev.vkrapp.ui.receipt.ReceiptAddFragment"
+        android:label="@string/receipt_add_title"
+        tools:layout="@layout/fragment_receipt_add" />
 </navigation>

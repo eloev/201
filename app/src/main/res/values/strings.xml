@@ -24,5 +24,15 @@
     //Content Description
     <string name="cd_user_logo">Аватар</string>
     <string name="cd_promo_img">Акции</string>
+    <string name="cd_receipt_item_img">Лого магазина</string>
+    //
+    <string name="main_receipt_count">1206₽</string>
+    <string name="main_receipt_tv">Прошлый чек</string>
+    <string name="main_bonus_count">589</string>
+    <string name="receipt_item">Итого:</string>
+    <string name="receipt_add_price">Добавьте цену</string>
+    <string name="receipt_add_time">Время добавится автоматически</string>
+    <string name="receipt_add">Сохранить</string>
+    <string name="receipt_add_title">Добавить чек</string>
 
 </resources>

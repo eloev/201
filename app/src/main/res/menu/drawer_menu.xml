@@ -34,6 +34,10 @@
                 android:icon="@drawable/ic_write"
                 android:id="@+id/navigation_second"
                 android:title="@string/title_write" />
+            <item
+                android:icon="@drawable/ic_receipt_add"
+                android:id="@+id/navigation_receiptAdd"
+                android:title="@string/receipt_add_title" />
         </menu>
     </item>
 
