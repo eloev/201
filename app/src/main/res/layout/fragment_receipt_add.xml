@@ -39,8 +39,14 @@
         android:text="@string/receipt_edit" />
 
     <Button
-        android:id="@+id/receipt_all_delete"
+        android:id="@+id/receipt_delete"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/receipt_delete" />
+
+    <Button
+        android:id="@+id/receipt_all_delete"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/receipt_all_delete" />
 </LinearLayout>

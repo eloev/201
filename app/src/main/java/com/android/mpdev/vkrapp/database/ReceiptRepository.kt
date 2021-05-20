@@ -36,6 +36,18 @@ class ReceiptRepository private constructor(context: Context){
         }
     }
 
+    fun deleteAllReceipt(){
+        executor.execute{
+            receiptDao.deleteAllReceipt()
+        }
+    }
+
+    fun deleteReceipt(receipt: Receipt){
+        executor.execute{
+            receiptDao.deleteReceipt(receipt.id)
+        }
+    }
+
     companion object{
         private var INSTANCE: ReceiptRepository? = null
 

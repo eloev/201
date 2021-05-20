@@ -131,10 +131,6 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         }
     }
 
-    private fun initUi() {
-
-    }
-
     private fun enableNfc() {
         if (nfcAdapter?.isEnabled == true) {
             nfcAdapter?.enableForegroundDispatch(this, pendingIntent, null, null)

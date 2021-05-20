@@ -36,8 +36,12 @@ class ReceiptViewModel: ViewModel() {
         receiptRepository.addReceipt(receipt)
     }
 
-    fun deleteReceipt(receiptId: UUID){
-        receiptIdLiveData.value = receiptId
+    fun deleteAllReceipt(){
+        receiptRepository.deleteAllReceipt()
+    }
+
+    fun deleteReceipt(){
+        receiptRepository.deleteReceipt(receipt)
     }
 
     override fun onCleared() {

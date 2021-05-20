@@ -40,12 +40,22 @@ class ReceiptAddFragment : Fragment() {
         val receiptAddDate: EditText = view.findViewById(R.id.receipt_add_time)
         val receiptAdd: Button = view.findViewById(R.id.receipt_add)
         val receiptEdit: Button = view.findViewById(R.id.receipt_edit)
+        val receiptDelete: Button = view.findViewById(R.id.receipt_delete)
         val receiptAllDelete: Button = view.findViewById(R.id.receipt_all_delete)
 
         if (receiptViewModel.receiptInitialized) {
             receipt = receiptViewModel.receipt
             receiptAddPrice.setText(receipt.price.toString())
             receiptAddDate.setText(receipt.date)
+        }
+
+        fun clearFocus(){
+            receiptAddPrice.setText("")
+            receiptAddPrice.clearFocus()
+            receiptAddDate.setText("")
+            receiptAddDate.clearFocus()
+            viewModel.receiptInitialized = false
+            activity?.onBackPressed()
         }
 
         receiptAdd.setOnClickListener {
@@ -55,9 +65,8 @@ class ReceiptAddFragment : Fragment() {
                 Toast.makeText(activity, getString(R.string.added_error), LENGTH_SHORT).show()
             } else {
                 price = receiptAddPrice.text.toString()
-                receiptAddPrice.text = null
-                receiptAddPrice.clearFocus()
                 updateUI(price)
+                clearFocus()
             }
         }
 
@@ -70,18 +79,23 @@ class ReceiptAddFragment : Fragment() {
                 receipt.date = receiptAddDate.text.toString()
                 receipt.price = receiptAddPrice.text.toString().toInt()
                 receiptViewModel.saveReceipt(receipt)
-                receiptAddPrice.text = null
-                receiptAddPrice.clearFocus()
-                receiptEdit.text = null
-                receiptEdit.clearFocus()
+                clearFocus()
             }
         }
 
+        receiptDelete.setOnClickListener{
+            if (receiptViewModel.receiptInitialized){
+                receiptViewModel.deleteReceipt()
+            }
+            else{
+                Toast.makeText(activity, getString(R.string.delete_error), LENGTH_SHORT).show()
+            }
+            clearFocus()
+        }
+
         receiptAllDelete.setOnClickListener {
-            receiptAddPrice.text = null
-            receiptAddPrice.clearFocus()
-            receiptAddDate.text = null
-            receiptAddDate.clearFocus()
+            receiptViewModel.deleteAllReceipt()
+            clearFocus()
         }
         return view
     }
@@ -95,14 +109,8 @@ class ReceiptAddFragment : Fragment() {
     private fun updateUI(price: String) {
         val sdf = SimpleDateFormat("HH:mm, dd.MM.yyyy")
         val dateNow = sdf.format(Date())
-        val nReceipt = Receipt(UUID.randomUUID(), dateNow, price.toInt())
-        viewModel.addReceipt(nReceipt)
-        Log.d(TAG, "$nReceipt")
-    }
-
-    private fun hideKeyboardFrom(context: Context, view: View) {
-        val imm: InputMethodManager =
-            context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken, 0)
+        val receipt = Receipt(UUID.randomUUID(), dateNow, price.toInt())
+        viewModel.addReceipt(receipt)
+        Log.d(TAG, "$receipt")
     }
 }

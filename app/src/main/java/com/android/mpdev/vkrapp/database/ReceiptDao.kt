@@ -15,6 +15,8 @@ interface ReceiptDao {
     fun updateReceipt(receipt: Receipt)
     @Insert
     fun addReceipt(receipt: Receipt)
-   // @Query("DELETE FROM receipt WHERE id=(:id)")
-    //fun deleteReceipt(id: UUID) : LiveData<Receipt?>
+    @Query("DELETE FROM receipt WHERE id=(:id)")
+    fun deleteReceipt(id: UUID)
+    @Query("DELETE FROM receipt")
+    fun deleteAllReceipt()
 }
