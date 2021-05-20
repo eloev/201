@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="125dp"
     android:orientation="vertical"
     android:paddingLeft="8dp"
     android:paddingTop="8dp"
-    android:paddingRight="8dp">
+    android:paddingRight="8dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/circle_angle">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,8 +34,17 @@
             app:srcCompat="@mipmap/nfc" />
     </LinearLayout>
     <TextView
+        android:id="@+id/receipt_item_id"
+        android:layout_width="220dp"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="bottom"
+        android:textSize="14sp"
+        android:text="@string/receipt_address" />
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="7dp"
+        android:background="@drawable/dotted_line" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,9 +70,5 @@
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@drawable/dotted_line" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="5dp" />
 </LinearLayout>

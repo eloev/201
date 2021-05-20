@@ -30,9 +30,12 @@
     <string name="main_receipt_tv">Прошлый чек</string>
     <string name="main_bonus_count">589</string>
     <string name="receipt_item">Итого:</string>
+    <string name="receipt_address">7-я Парковая, 9/26</string>
     <string name="receipt_add_price">Добавьте цену</string>
     <string name="receipt_add_time">Время добавится автоматически</string>
-    <string name="receipt_add">Сохранить</string>
+    <string name="receipt_add">Сохранить чек</string>
     <string name="receipt_add_title">Добавить чек</string>
+    <string name="receipt_delete">Удалить чек</string>
+    <string name="null_error">Данные необходимо ввести</string>
 
 </resources>

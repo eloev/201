@@ -29,4 +29,8 @@ class ReceiptAddViewModel : ViewModel() {
     fun addReceipt(receipt: Receipt){
         receiptRepository.addReceipt(receipt)
     }
+
+    fun deleteReceipt(receiptId: UUID){
+        receiptIdLiveData.value = receiptId
+    }
 }

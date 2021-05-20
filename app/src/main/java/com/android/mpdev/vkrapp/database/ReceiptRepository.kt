@@ -7,7 +7,7 @@ import com.android.mpdev.vkrapp.ui.receipt.Receipt
 import java.util.*
 import java.util.concurrent.Executors
 
-private const val DATABASE_NAME = "receipt-database"
+private const val DATABASE_NAME = "receipt_database"
 
 class ReceiptRepository private constructor(context: Context){
 
@@ -35,6 +35,8 @@ class ReceiptRepository private constructor(context: Context){
             receiptDao.addReceipt(receipt)
         }
     }
+
+    //fun deleteReceipt(id: UUID) : LiveData<Receipt?> = receiptDao.deleteReceipt(id)
 
     companion object{
         private var INSTANCE: ReceiptRepository? = null

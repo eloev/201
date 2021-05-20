@@ -7,7 +7,7 @@ import java.util.*
 @Entity
 data class Receipt(
     @PrimaryKey val id: UUID = UUID.randomUUID(),
-    var date: Date = Date(),
+    var date: String = "",
     var price: Int = 200
 ) {
 
