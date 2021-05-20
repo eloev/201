@@ -33,9 +33,11 @@
     <string name="receipt_address">7-я Парковая, 9/26</string>
     <string name="receipt_add_price">Добавьте цену</string>
     <string name="receipt_add_time">Время добавится автоматически</string>
-    <string name="receipt_add">Сохранить чек</string>
+    <string name="receipt_edit">Изменить чек</string>
     <string name="receipt_add_title">Добавить чек</string>
     <string name="receipt_delete">Удалить чек</string>
     <string name="null_error">Данные необходимо ввести</string>
+    <string name="added_error">Нужно нажать изменить чек</string>
+    <string name="edit_error">Нужно нажать добавить чек</string>
 
 </resources>

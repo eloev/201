@@ -36,8 +36,6 @@ class ReceiptRepository private constructor(context: Context){
         }
     }
 
-    //fun deleteReceipt(id: UUID) : LiveData<Receipt?> = receiptDao.deleteReceipt(id)
-
     companion object{
         private var INSTANCE: ReceiptRepository? = null
 

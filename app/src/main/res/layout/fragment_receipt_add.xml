@@ -6,17 +6,16 @@
     android:orientation="vertical"
     android:paddingStart="8dp"
     android:paddingTop="8dp"
-    android:paddingEnd="8dp"
-    tools:context=".ui.receipt.ReceiptAddFragment">
+    android:paddingEnd="8dp">
 
     <EditText
         android:id="@+id/receipt_add_price"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:autofillHints=""
         android:hint="@string/receipt_add_price"
         android:inputType="number"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/receipt_add_time"
@@ -25,13 +24,19 @@
         android:hint="@string/receipt_add_time"
         android:inputType="date"
         android:textSize="20sp"
-        android:autofillHints="" />
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/receipt_add"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/receipt_add" />
+        android:text="@string/receipt_add_title" />
+
+    <Button
+        android:id="@+id/receipt_edit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/receipt_edit" />
 
     <Button
         android:id="@+id/receipt_all_delete"
