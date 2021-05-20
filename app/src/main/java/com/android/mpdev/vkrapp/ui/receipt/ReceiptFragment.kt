@@ -12,6 +12,8 @@ import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mpdev.vkrapp.R
@@ -20,25 +22,15 @@ import java.util.*
 
 class ReceiptFragment : Fragment() {
 
-    interface Callbacks {
-        fun onReceiptSelected(receiptId: UUID)
-    }
-
-    private var callbacks: Callbacks? = null
-
     private lateinit var _binding: FragmentReceiptBinding
     private val binding get() = _binding
 
     private lateinit var viewModel: ReceiptViewModel
-    private var adapter: RecyclerAdapter? = RecyclerAdapter(emptyList())
-
-    private lateinit var recyclerView: RecyclerView
     private val receiptViewModel: ReceiptViewModel by activityViewModels()
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        callbacks = context as Callbacks?
-    }
+    private lateinit var recyclerView: RecyclerView
+    private var adapter: RecyclerAdapter? = RecyclerAdapter(emptyList())
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,11 +63,6 @@ class ReceiptFragment : Fragment() {
         recyclerView.adapter = adapter
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        callbacks = null
-    }
-
     private inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         private lateinit var receipt: Receipt
@@ -84,7 +71,6 @@ class ReceiptFragment : Fragment() {
         //private val receiptItemId: TextView = itemView.findViewById(R.id.receipt_item_id)
         private val receiptItemPrice: TextView = itemView.findViewById(R.id.receipt_item_price)
         //private val receiptItemImg: ImageView = itemView.findViewById(R.id.receipt_item_img)
-
 
         init {
             itemView.setOnClickListener(this)
@@ -97,7 +83,9 @@ class ReceiptFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            callbacks?.onReceiptSelected(receipt.id)
+            itemView.findNavController().navigate(R.id.navigation_receiptAdd)
+            receiptViewModel.receipt = this.receipt
+            receiptViewModel.receiptInitialized = true
         }
     }
 

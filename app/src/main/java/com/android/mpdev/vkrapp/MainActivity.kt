@@ -21,7 +21,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.android.mpdev.vkrapp.databinding.ActivityMainBinding
 import com.android.mpdev.vkrapp.ui.firstScreen.FirstViewModel
 import com.android.mpdev.vkrapp.ui.pass.PassViewModel
-import com.android.mpdev.vkrapp.ui.receipt.ReceiptAddFragment
 import com.android.mpdev.vkrapp.ui.receipt.ReceiptFragment
 import com.android.mpdev.vkrapp.ui.secondScreen.SecondViewModel
 import com.android.mpdev.vkrapp.utils.NFCUtilManager
@@ -30,7 +29,7 @@ import java.util.*
 
 private const val TAG = "MainActivity"
 
-class MainActivity : AppCompatActivity(), LifecycleOwner, ReceiptFragment.Callbacks {
+class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     private lateinit var lifeCycleRegistry: LifecycleRegistry
 
@@ -148,15 +147,5 @@ class MainActivity : AppCompatActivity(), LifecycleOwner, ReceiptFragment.Callba
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onReceiptSelected(receiptId: UUID) {
-        val fragment = ReceiptAddFragment.newInstance(receiptId)
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.navigation_receipt, fragment)
-            .addToBackStack(null)
-            .commit()
-
     }
 }
