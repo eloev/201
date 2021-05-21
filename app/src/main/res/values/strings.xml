@@ -41,5 +41,11 @@
     <string name="added_error">Нужно нажать изменить чек</string>
     <string name="edit_error">Нужно нажать добавить чек</string>
     <string name="delete_error">Нужно выбрать чек из списка</string>
+    //
+    <string name="promo1">Напитки 2+1</string>
+    <string name="promo2">+50 баллов</string>
+    <string name="promo3">-20% Хлеб</string>
+    <string name="promo4">Уголь по 199</string>
+    //
 
 </resources>

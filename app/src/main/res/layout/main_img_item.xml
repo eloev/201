@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/main_promo_img"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:srcCompat="@mipmap/promo1"
         android:contentDescription="@string/cd_promo_img" />
 </LinearLayout>
