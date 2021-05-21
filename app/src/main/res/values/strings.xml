@@ -42,10 +42,14 @@
     <string name="edit_error">Нужно нажать добавить чек</string>
     <string name="delete_error">Нужно выбрать чек из списка</string>
     //
-    <string name="promo1">Напитки 2+1</string>
-    <string name="promo2">+50 баллов</string>
-    <string name="promo3">-20% Хлеб</string>
-    <string name="promo4">Уголь по 199</string>
+    <string name="promo1">2+1</string>
+    <string name="promo2">+50</string>
+    <string name="promo3">-9%</string>
+    <string name="promo4">149</string>
+    <string name="promo1s">На напитки и воду в жару</string>
+    <string name="promo2s">Баллов нашим частым гостям</string>
+    <string name="promo3s">На категорию "Вкусный Хлеб"</string>
+    <string name="promo4s">За уголь для шашлыка</string>
     //
     <string name="bonus_add">Добавлено: </string>
     <string name="bonus_all">Всего: </string>

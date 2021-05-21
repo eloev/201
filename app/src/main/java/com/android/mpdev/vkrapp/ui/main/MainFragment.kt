@@ -40,10 +40,12 @@ class MainFragment : Fragment() {
         val mainReceiptCount: TextView = view.findViewById(R.id.main_receipt_count)
         val mainReceiptImg: ImageView = view.findViewById(R.id.main_receipt_img)
         val mainPromoTv: TextView = view.findViewById(R.id.main_promo_tv)
+        val mainPromoTvs: TextView = view.findViewById(R.id.main_promo_tvs)
 
         val layout: LinearLayout = view.findViewById(R.id.main_promo_dots)
         val dots: Array<TextView?> = arrayOfNulls(4)
         val promoText: List<Int> = listOf(R.string.promo1, R.string.promo2, R.string.promo3, R.string.promo4)
+        val promoTexts: List<Int> = listOf(R.string.promo1s, R.string.promo2s, R.string.promo3s, R.string.promo4s)
 
         mainBonusTv.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
         mainBonusCount.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
@@ -53,11 +55,13 @@ class MainFragment : Fragment() {
         mainReceiptImg.setOnClickListener { navController.navigate(R.id.navigation_receipt) }
 
 
+        @SuppressLint("SetTextI18n")
         fun selectedDots(position: Int) {
             for (i in dots.indices) {
                 if (i == position) {
                     dots[i]?.setTextColor(resources.getColor(R.color.colorPrimary))
-                    mainPromoTv.text = getString(promoText[i])
+                    mainPromoTv.text = " " + getString(promoText[i])
+                    mainPromoTvs.text = getString(promoTexts[i])
                 } else {
                     dots[i]?.setTextColor(resources.getColor(R.color.gray200))
                 }
