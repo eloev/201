@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#646464</color>
     <color name="gray200">#505050</color>
+    <color name="green">#66BB6A</color>
+    <color name="red">#F44336</color>
     <!-- theme -->
     <color name="colorPrimary">#FF9800</color>
     <color name="colorPrimaryVariant">#F57C00</color>

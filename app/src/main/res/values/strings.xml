@@ -47,5 +47,8 @@
     <string name="promo3">-20% Хлеб</string>
     <string name="promo4">Уголь по 199</string>
     //
+    <string name="bonus_add">Добавлено: </string>
+    <string name="bonus_all">Всего: </string>
+    <string name="bonus_counter"> баллов</string>
 
 </resources>
