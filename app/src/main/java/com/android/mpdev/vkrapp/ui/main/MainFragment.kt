@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.android.mpdev.vkrapp.R
+import com.google.firebase.auth.FirebaseAuth
 
 private const val TAG = "MainFragment"
 
@@ -33,12 +35,32 @@ class MainFragment : Fragment() {
 
         val navController = NavHostFragment.findNavController(this)
 
+        //логин
+        val mainUserImg: ImageView = view.findViewById(R.id.main_user_img)
+        val mainUsername: TextView = view.findViewById(R.id.main_username)
+        mainUserImg.setOnClickListener {
+            //FirebaseAuth.getInstance().signOut()
+        }
+
+        //бонусы
         val mainBonusTv: TextView = view.findViewById(R.id.main_bonus_tv)
         val mainBonusCount: TextView = view.findViewById(R.id.main_bonus_count)
         val mainBonusImg: ImageView = view.findViewById(R.id.main_bonus_img)
+
+        mainBonusTv.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
+        mainBonusCount.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
+        mainBonusImg.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
+
+        //чеки
         val mainReceiptTv: TextView = view.findViewById(R.id.main_receipt_tv)
         val mainReceiptCount: TextView = view.findViewById(R.id.main_receipt_count)
         val mainReceiptImg: ImageView = view.findViewById(R.id.main_receipt_img)
+
+        mainReceiptTv.setOnClickListener { navController.navigate(R.id.navigation_receipt) }
+        mainReceiptCount.setOnClickListener { navController.navigate(R.id.navigation_receipt) }
+        mainReceiptImg.setOnClickListener { navController.navigate(R.id.navigation_receipt) }
+
+        //акции
         val mainPromoTv: TextView = view.findViewById(R.id.main_promo_tv)
         val mainPromoTvs: TextView = view.findViewById(R.id.main_promo_tvs)
 
@@ -47,12 +69,8 @@ class MainFragment : Fragment() {
         val promoText: List<Int> = listOf(R.string.promo1, R.string.promo2, R.string.promo3, R.string.promo4)
         val promoTexts: List<Int> = listOf(R.string.promo1s, R.string.promo2s, R.string.promo3s, R.string.promo4s)
 
-        mainBonusTv.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
-        mainBonusCount.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
-        mainBonusImg.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
-        mainReceiptTv.setOnClickListener { navController.navigate(R.id.navigation_receipt) }
-        mainReceiptCount.setOnClickListener { navController.navigate(R.id.navigation_receipt) }
-        mainReceiptImg.setOnClickListener { navController.navigate(R.id.navigation_receipt) }
+
+
 
 
         @SuppressLint("SetTextI18n")

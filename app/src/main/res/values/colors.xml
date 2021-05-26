@@ -12,6 +12,7 @@
     <color name="green">#66BB6A</color>
     <color name="red">#F44336</color>
     <color name="yellow">#FFF176</color>
+    <color name="primary200">#FFCC80</color>
     <!-- theme -->
     <color name="colorPrimary">#FF9800</color>
     <color name="colorPrimaryVariant">#F57C00</color>

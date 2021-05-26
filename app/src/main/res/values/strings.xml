@@ -54,5 +54,9 @@
     <string name="bonus_add">Добавлено: </string>
     <string name="bonus_all">Всего: </string>
     <string name="bonus_counter"> баллов</string>
+    //
+    <string name="login_hello">Привет!</string>
+    <string name="sign_in_with_google">Войти с Google</string>
+    <string name="error_sign_in">Войти не удалось</string>
 
 </resources>

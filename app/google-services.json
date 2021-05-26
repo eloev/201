@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890720654702",
+    "project_id": "vkrapp-d7360",
+    "storage_bucket": "vkrapp-d7360.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890720654702:android:673cd87001dc0ef007dd7f",
+        "android_client_info": {
+          "package_name": "com.android.mpdev.vkrapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890720654702-51q13dibakpkqutuse1c0iibdmp37ora.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV0N516GFbJkq8dwFkIh28fe0FmgnDiVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890720654702-51q13dibakpkqutuse1c0iibdmp37ora.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,20 +1,19 @@
 package com.android.mpdev.vkrapp.ui.pass
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import com.android.mpdev.vkrapp.R
 import com.android.mpdev.vkrapp.databinding.FragmentPassBinding
 
-class PassFragment : Fragment() {
+private const val TAG = "Pass"
 
-    companion object {
-        fun newInstance() = PassFragment()
-    }
+class PassFragment : Fragment() {
 
     private lateinit var viewModel: PassViewModel
 
@@ -23,6 +22,7 @@ class PassFragment : Fragment() {
     private lateinit var _binding: FragmentPassBinding
 
     private val binding get() = _binding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +35,6 @@ class PassFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PassViewModel::class.java)
     }
-
 
     override fun onResume() {
         super.onResume()

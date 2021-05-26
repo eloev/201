@@ -6,7 +6,6 @@ import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -21,11 +20,10 @@ import androidx.navigation.ui.setupWithNavController
 import com.android.mpdev.vkrapp.databinding.ActivityMainBinding
 import com.android.mpdev.vkrapp.ui.firstScreen.FirstViewModel
 import com.android.mpdev.vkrapp.ui.pass.PassViewModel
-import com.android.mpdev.vkrapp.ui.receipt.ReceiptFragment
 import com.android.mpdev.vkrapp.ui.secondScreen.SecondViewModel
 import com.android.mpdev.vkrapp.utils.NFCUtilManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.*
+import com.google.firebase.auth.FirebaseAuth
 
 private const val TAG = "MainActivity"
 
@@ -40,6 +38,8 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     private var nfcAdapter: NfcAdapter? = null
 
     private var pendingIntent: PendingIntent? = null
+
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,6 +85,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         super.onResume()
         lifeCycleRegistry.currentState = Lifecycle.State.RESUMED
         enableNfc()
+        signIn()
     }
 
     override fun onPause() {
@@ -138,6 +139,17 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
             //выводим экран включения NFC
             startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
             showToast(getString(R.string.nfc_disabled))
+        }
+    }
+
+    private fun signIn(){
+        //проверяем зашли ли в аккаунт
+        mAuth = FirebaseAuth.getInstance()
+        val user = mAuth.currentUser
+        if(user == null){
+            val signInIntent = Intent(this, SignInActivity::class.java)
+            startActivity(signInIntent)
+            finish()
         }
     }
 
