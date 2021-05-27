@@ -15,6 +15,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.android.mpdev.vkrapp.databinding.ActivityMainBinding
@@ -119,9 +120,15 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 val msg = String(ndefMessage.records[0].payload)
                 //идентификация входа
                 if (msg == "200" && passViewModel.passIsVisible) {
-                    onBackPressed()
+                    //onBackPressed()
                     readViewModel?.setTagMessage(getString(R.string.pass_success))
-                } else {
+                    passViewModel.passIsInit = true
+                }
+                else if (msg == "200" && !passViewModel.passIsVisible){
+                    val navController = findNavController(R.id.host_fragment)
+                    navController.navigate(R.id.navigation_pass)
+                }
+                else {
                     //показываем сообщение
                     readViewModel?.setTagMessage(msg)
                 }

@@ -54,8 +54,8 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.3.0'
     //firebase
     implementation 'com.google.firebase:firebase-auth:21.0.1'
-    implementation 'com.google.firebase:firebase-database:20.0.0'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-firestore:23.0.0'
 
     //api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
     //api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
