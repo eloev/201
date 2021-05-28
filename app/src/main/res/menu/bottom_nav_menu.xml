@@ -12,7 +12,7 @@
         android:title="@string/title_main" />
 
     <item
-        android:icon="@drawable/ic_pass"
+        android:icon="@drawable/ic_basket"
         android:id="@+id/navigation_pass"
         android:title="@string/title_pass" />
 

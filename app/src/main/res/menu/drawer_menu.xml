@@ -10,7 +10,7 @@
             android:id="@+id/navigation_main"
             android:title="@string/title_main" />
         <item
-            android:icon="@drawable/ic_pass"
+            android:icon="@drawable/ic_basket"
             android:id="@+id/navigation_pass"
             android:title="@string/title_pass" />
         <item
@@ -38,6 +38,10 @@
                 android:icon="@drawable/ic_receipt_add"
                 android:id="@+id/navigation_receiptAdd"
                 android:title="@string/receipt_add_title" />
+            <item
+                android:icon="@drawable/ic_pass"
+                android:id="@+id/navigation_basket"
+                android:title="@string/basket_title" />
         </menu>
     </item>
 

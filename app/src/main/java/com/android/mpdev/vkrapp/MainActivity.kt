@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         val navView: BottomNavigationView = binding.navView
         val sideBar = binding.sidebarNavView
         val drawerLayout: DrawerLayout = binding.drawerLayout
-
         val navController = findNavController(R.id.host_fragment)
         val toolbarMain: Toolbar = findViewById(R.id.toolbar_main)
 
@@ -96,6 +95,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
+        val navController = findNavController(R.id.host_fragment)
 
         if (writeViewModel?.isWriteTagOptionOn) {
             val messageWrittenSuccessfully =
@@ -122,11 +122,22 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 if (msg == "200" && passViewModel.passIsVisible) {
                     //onBackPressed()
                     readViewModel?.setTagMessage(getString(R.string.pass_success))
-                    passViewModel.passIsInit = true
+                    passViewModel?.passIsInit = true
                 }
                 else if (msg == "200" && !passViewModel.passIsVisible){
-                    val navController = findNavController(R.id.host_fragment)
                     navController.navigate(R.id.navigation_pass)
+                }
+                else if(msg == "kitkat"){
+                    passViewModel?.productId = "kitkat"
+                    navController.navigate(R.id.navigation_basket)
+                }
+                else if(msg == "lipton"){
+                    passViewModel?.productId = "lipton"
+                    navController.navigate(R.id.navigation_basket)
+                }
+                else if(msg == "milk"){
+                    passViewModel?.productId = "milk"
+                    navController.navigate(R.id.navigation_basket)
                 }
                 else {
                     //показываем сообщение

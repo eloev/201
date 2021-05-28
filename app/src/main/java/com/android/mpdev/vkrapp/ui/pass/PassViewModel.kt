@@ -9,5 +9,6 @@ private const val TAG = "PassFragment"
 class PassViewModel : ViewModel() {
     var passIsVisible = false
     var passIsInit = false
+    var productId: String = "kitkat"
 
 }

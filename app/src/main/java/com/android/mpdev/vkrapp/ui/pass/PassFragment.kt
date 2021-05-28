@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
@@ -19,7 +17,6 @@ import com.android.mpdev.vkrapp.R
 import com.android.mpdev.vkrapp.databinding.FragmentPassBinding
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
-
 
 private const val TAG = "PassFragment"
 
@@ -37,14 +34,13 @@ class PassFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentPassBinding.inflate(inflater, container, false)
         recyclerView = binding.passRecyclerView
         recyclerView.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, true)
         (recyclerView.layoutManager as LinearLayoutManager).stackFromEnd = true
         recyclerView.adapter = adapter
-        Log.d(TAG, "passfrag created")
         return binding.root
     }
 
@@ -56,7 +52,7 @@ class PassFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val db = FirebaseFirestore.getInstance()
-        db.collection("items").addSnapshotListener(EventListener{ querySnapshot, error ->
+        db.collection("items").addSnapshotListener(EventListener{ _, error ->
             if(error != null){
                 Log.w(TAG, "listen:error", error)
             }
@@ -161,28 +157,3 @@ class PassFragment : Fragment() {
         override fun getItemCount() = products.size
     }
 }
-/*
-
-//write
-// Create a new user with a first, middle, and last name
-// Create a new user with a first, middle, and last name
-
-val user: MutableMap<String, Any> = HashMap()
-user["first"] = "Alan"
-user["middle"] = "Mathison"
-user["last"] = "Turing"
-user["born"] = 1912
-
-// Add a new document with a generated ID
-
-// Add a new document with a generated ID
-db.collection("users")
-    .add(user)
-    .addOnSuccessListener { documentReference ->
-        Log.d(
-            TAG,
-            "DocumentSnapshot added with ID: " + documentReference.id
-        )
-    }
-    .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
- */

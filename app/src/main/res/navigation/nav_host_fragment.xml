@@ -40,4 +40,9 @@
         android:name="com.android.mpdev.vkrapp.ui.receipt.ReceiptAddFragment"
         android:label="@string/receipt_edit"
         tools:layout="@layout/fragment_receipt_add" />
+    <fragment
+        android:id="@+id/navigation_basket"
+        android:name="com.android.mpdev.vkrapp.ui.pass.BasketFragment"
+        android:label="@string/basket_title"
+        tools:layout="@layout/fragment_basket" />
 </navigation>
