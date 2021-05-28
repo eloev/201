@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
@@ -95,6 +97,7 @@ class PassFragment : Fragment() {
                     }
                     adapter = RecyclerAdapter(products)
                     recyclerView.adapter = adapter
+
                 } else {
                     Log.w(TAG, "Error getting documents.", task.exception)
                 }
@@ -107,7 +110,7 @@ class PassFragment : Fragment() {
         private lateinit var product: Product
 
         private val productName: TextView = itemView.findViewById(R.id.product_name)
-        //private val productImg: ImageView = itemView.findViewById(R.id.product_img)
+        private val productImg: ImageView = itemView.findViewById(R.id.product_img)
         private val productPrice: TextView = itemView.findViewById(R.id.product_price)
 
         init {
@@ -117,8 +120,19 @@ class PassFragment : Fragment() {
         @SuppressLint("SetTextI18n")
         fun bind(product: Product) {
             this.product = product
-            productName.text = product.id
-            productPrice.text = product.price + "₽"
+            productName.text = product.id + " x " + product.count
+            productPrice.text = (product.price.toInt() * product.count.toInt()).toString() + "₽"
+            when (product.id) {
+                "kitkat" -> {
+                    productImg.setImageResource(R.mipmap.kitkat)
+                }
+                "lipton" -> {
+                    productImg.setImageResource(R.mipmap.lipton)
+                }
+                "milk" -> {
+                    productImg.setImageResource(R.mipmap.milk)
+                }
+            }
         }
 
         override fun onClick(v: View) {
@@ -134,6 +148,8 @@ class PassFragment : Fragment() {
             val itemView =
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.product_item, parent, false)
+            binding.textPass.setText(R.string.pass_basket)
+            binding.progressBarPass.visibility = View.GONE
             return MyViewHolder(itemView)
         }
 

@@ -12,6 +12,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/pass_text"
         android:textSize="20sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

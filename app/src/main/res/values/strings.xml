@@ -11,6 +11,7 @@
     <string name="title_main">Главная</string>
     //
     <string name="pass_success">Вы выполнили вход</string>
+    <string name="pass_basket">Ваши покупки</string>
     <string name="write_success">Сообщение сохранено</string>
     <string name="write_error">Не удалось сохранить сообщение. Попробуйте ещё раз</string>
     <string name="read_empty">Пустая или неисправная метка</string>
