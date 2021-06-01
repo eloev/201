@@ -31,6 +31,8 @@ class PassFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private var adapter: PassFragment.RecyclerAdapter? = RecyclerAdapter(emptyList())
 
+    private var allPrice = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -117,8 +119,13 @@ class PassFragment : Fragment() {
         fun bind(product: Product) {
             this.product = product
             productName.text = product.id + " x " + product.count
+            allPrice += product.price.toInt() * product.count.toInt()
             productPrice.text = (product.price.toInt() * product.count.toInt()).toString() + "₽"
+            binding.passAllPrice.text = getString(R.string.pass_all_price) + " " + allPrice + " ₽"
             when (product.id) {
+                "J7" -> {
+                    productImg.setImageResource(R.mipmap.j7_juice)
+                }
                 "kitkat" -> {
                     productImg.setImageResource(R.mipmap.kitkat)
                 }
@@ -127,6 +134,15 @@ class PassFragment : Fragment() {
                 }
                 "milk" -> {
                     productImg.setImageResource(R.mipmap.milk)
+                }
+                "nutella" -> {
+                    productImg.setImageResource(R.mipmap.nutella)
+                }
+                "oreo" -> {
+                    productImg.setImageResource(R.mipmap.oreo)
+                }
+                "picnic" -> {
+                    productImg.setImageResource(R.mipmap.picnic)
                 }
             }
         }

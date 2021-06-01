@@ -8,6 +8,7 @@
     <string name="title_receipt">Чеки</string>
     <string name="title_bonus">Бонусы</string>
     <string name="pass_text">Корзина пока пустая</string>
+    <string name="pass_all_price">Общая стоимость: </string>
     <string name="title_main">Главная</string>
     //
     <string name="pass_success">Вы выполнили вход</string>
