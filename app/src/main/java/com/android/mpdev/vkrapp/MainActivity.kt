@@ -15,11 +15,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.android.mpdev.vkrapp.databinding.ActivityMainBinding
 import com.android.mpdev.vkrapp.ui.firstScreen.FirstViewModel
+import com.android.mpdev.vkrapp.ui.pass.AddProduct
 import com.android.mpdev.vkrapp.ui.pass.PassViewModel
 import com.android.mpdev.vkrapp.ui.secondScreen.SecondViewModel
 import com.android.mpdev.vkrapp.utils.NFCUtilManager
@@ -127,17 +127,8 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 else if (msg == "200" && !passViewModel.passIsVisible){
                     navController.navigate(R.id.navigation_pass)
                 }
-                else if(msg == "kitkat"){
-                    passViewModel?.productId = "kitkat"
-                    navController.navigate(R.id.navigation_basket)
-                }
-                else if(msg == "lipton"){
-                    passViewModel?.productId = "lipton"
-                    navController.navigate(R.id.navigation_basket)
-                }
-                else if(msg == "milk"){
-                    passViewModel?.productId = "milk"
-                    navController.navigate(R.id.navigation_basket)
+                else if(msg == "kitkat" || msg == "lipton" || msg == "milk"){
+                    AddProduct(msg)
                 }
                 else {
                     //показываем сообщение
