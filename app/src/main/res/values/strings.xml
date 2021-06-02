@@ -60,6 +60,8 @@
     <string name="login_hello">Привет!</string>
     <string name="sign_in_with_google">Войти с Google</string>
     <string name="error_sign_in">Войти не удалось</string>
-    <string name="basket_title">Добавить в корзину</string>
+    <string name="basket_title">Управление корзиной</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
 
 </resources>

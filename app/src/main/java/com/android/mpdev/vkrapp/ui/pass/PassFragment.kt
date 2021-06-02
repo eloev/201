@@ -37,6 +37,7 @@ class PassFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        viewModel = ViewModelProvider(this).get(PassViewModel::class.java)
         _binding = FragmentPassBinding.inflate(inflater, container, false)
         recyclerView = binding.passRecyclerView
         recyclerView.layoutManager =
@@ -44,11 +45,6 @@ class PassFragment : Fragment() {
         (recyclerView.layoutManager as LinearLayoutManager).stackFromEnd = true
         recyclerView.adapter = adapter
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PassViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -95,6 +91,7 @@ class PassFragment : Fragment() {
                     }
                     adapter = RecyclerAdapter(products)
                     recyclerView.adapter = adapter
+                    allPrice = 0
 
                 } else {
                     Log.w(TAG, "Error getting documents.", task.exception)
@@ -118,7 +115,7 @@ class PassFragment : Fragment() {
         @SuppressLint("SetTextI18n")
         fun bind(product: Product) {
             this.product = product
-            productName.text = product.id + " x " + product.count
+            productName.text = product.id + " x" + product.count
             allPrice += product.price.toInt() * product.count.toInt()
             productPrice.text = (product.price.toInt() * product.count.toInt()).toString() + "₽"
             binding.passAllPrice.text = getString(R.string.pass_all_price) + " " + allPrice + " ₽"
@@ -160,7 +157,7 @@ class PassFragment : Fragment() {
             val itemView =
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.product_item, parent, false)
-            binding.textPass.setText(R.string.pass_basket)
+            binding.textPass.visibility = View.GONE
             binding.progressBarPass.visibility = View.GONE
             return MyViewHolder(itemView)
         }

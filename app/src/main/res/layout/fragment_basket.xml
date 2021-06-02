@@ -7,14 +7,214 @@
     tools:context=".ui.pass.BasketFragment">
 
     <TextView
-        android:id="@+id/basket_tv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="@string/basket_title"
+        android:id="@+id/label_j7"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar_basket"/>
+        tools:text="j7 x2" />
+
+    <Button
+        android:id="@+id/minus_j7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/label_j7"
+        app:layout_constraintTop_toTopOf="@id/label_j7" />
+
+    <Button
+        android:id="@+id/plus_j7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/label_j7"
+        app:layout_constraintTop_toTopOf="@id/label_j7" />
+
+    <TextView
+        android:id="@+id/label_kitkat"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_j7"
+        tools:text="kitkat x2" />
+
+    <Button
+        android:id="@+id/minus_kitkat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/label_kitkat"
+        app:layout_constraintTop_toTopOf="@id/label_kitkat" />
+
+    <Button
+        android:id="@+id/plus_kitkat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/label_kitkat"
+        app:layout_constraintTop_toTopOf="@id/label_kitkat" />
+
+    <TextView
+        android:id="@+id/label_lipton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_kitkat"
+        tools:text="lipton x2" />
+
+    <Button
+        android:id="@+id/minus_lipton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/label_lipton"
+        app:layout_constraintTop_toTopOf="@id/label_lipton" />
+
+    <Button
+        android:id="@+id/plus_lipton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/label_lipton"
+        app:layout_constraintTop_toTopOf="@id/label_lipton" />
+
+    <TextView
+        android:id="@+id/label_milk"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_lipton"
+        tools:text="milk x2" />
+
+    <Button
+        android:id="@+id/minus_milk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/label_milk"
+        app:layout_constraintTop_toTopOf="@id/label_milk" />
+
+    <Button
+        android:id="@+id/plus_milk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/label_milk"
+        app:layout_constraintTop_toTopOf="@id/label_milk" />
+
+    <TextView
+        android:id="@+id/label_nutella"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_milk"
+        tools:text="nutella x2" />
+
+    <Button
+        android:id="@+id/minus_nutella"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/label_nutella"
+        app:layout_constraintTop_toTopOf="@id/label_nutella" />
+
+    <Button
+        android:id="@+id/plus_nutella"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/label_nutella"
+        app:layout_constraintTop_toTopOf="@id/label_nutella" />
+
+    <TextView
+        android:id="@+id/label_oreo"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_nutella"
+        tools:text="oreo x2" />
+
+    <Button
+        android:id="@+id/minus_oreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/label_oreo"
+        app:layout_constraintTop_toTopOf="@id/label_oreo" />
+
+    <Button
+        android:id="@+id/plus_oreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/label_oreo"
+        app:layout_constraintTop_toTopOf="@id/label_oreo" />
+
+    <TextView
+        android:id="@+id/label_picnic"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_oreo"
+        tools:text="picnic x2" />
+
+    <Button
+        android:id="@+id/minus_picnic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/label_picnic"
+        app:layout_constraintTop_toTopOf="@id/label_picnic" />
+
+    <Button
+        android:id="@+id/plus_picnic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/label_picnic"
+        app:layout_constraintTop_toTopOf="@id/label_picnic" />
 
     <ProgressBar
         android:id="@+id/progress_bar_basket"

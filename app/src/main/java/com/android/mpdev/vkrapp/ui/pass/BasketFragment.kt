@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.android.mpdev.vkrapp.databinding.FragmentBasketBinding
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 
 private const val TAG = "PassFragment"
@@ -23,12 +24,19 @@ class BasketFragment : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
 
+    private val j7 = "J7"
+    private val kitkat = "kitkat"
+    private val lipton = "lipton"
+    private val milk = "milk"
+    private val nutella = "nutella"
+    private val oreo = "oreo"
+    private val picnic = "picnic"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentBasketBinding.inflate(inflater, container, false)
-        readDB()
         return binding.root
     }
 
@@ -37,36 +45,67 @@ class BasketFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(PassViewModel::class.java)
     }
 
-    private fun readDB() {
-        val prodWrite: MutableMap<String, String> = HashMap()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val db = FirebaseFirestore.getInstance()
+        db.collection("items").addSnapshotListener(EventListener { _, error ->
+            if (error != null) {
+                Log.w(TAG, "listen:error", error)
+            }
+            updateUI()
+        })
+        //кнопки плюс
+        binding.plusJ7.setOnClickListener{AddProduct(j7)}
+        binding.plusKitkat.setOnClickListener{AddProduct(kitkat)}
+        binding.plusLipton.setOnClickListener{AddProduct(lipton)}
+        binding.plusMilk.setOnClickListener{AddProduct(milk)}
+        binding.plusNutella.setOnClickListener{AddProduct(nutella)}
+        binding.plusOreo.setOnClickListener{AddProduct(oreo)}
+        binding.plusPicnic.setOnClickListener{AddProduct(picnic)}
+        //кнопки минус
+        binding.minusJ7.setOnClickListener{RemoveProduct(j7)}
+        binding.minusKitkat.setOnClickListener{RemoveProduct(kitkat)}
+        binding.minusLipton.setOnClickListener{RemoveProduct(lipton)}
+        binding.minusMilk.setOnClickListener{RemoveProduct(milk)}
+        binding.minusNutella.setOnClickListener{RemoveProduct(nutella)}
+        binding.minusOreo.setOnClickListener{RemoveProduct(oreo)}
+        binding.minusPicnic.setOnClickListener{RemoveProduct(picnic)}
+    }
 
+    private fun updateUI() {
         //Читаем FireStore
         db.collection("items")
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     for (document in task.result!!) {
-                        if(document.id == passViewModel.productId){
-                            prodWrite["price"] = document.get("price").toString()
-                            prodWrite["count"] = document.get("count").toString()
-                            writeDB(prodWrite)
-                            binding.basketTv.text = ("${binding.basketTv.text} \nParam: ${passViewModel.productId}")
+                        when (document.id) {
+                            j7 -> {
+                                binding.labelJ7.text = (j7 + " x" + document.get("count").toString())
+                            }
+                            kitkat -> {
+                                binding.labelKitkat.text = (kitkat + " x" + document.get("count").toString())
+                            }
+                            lipton -> {
+                                binding.labelLipton.text = (lipton + " x" + document.get("count").toString())
+                            }
+                            milk -> {
+                                binding.labelMilk.text = (milk + " x" + document.get("count").toString())
+                            }
+                            nutella -> {
+                                binding.labelNutella.text = (nutella + " x" + document.get("count").toString())
+                            }
+                            oreo -> {
+                                binding.labelOreo.text = (oreo + " x" + document.get("count").toString())
+                            }
+                            picnic -> {
+                                binding.labelPicnic.text = (picnic + " x" + document.get("count").toString())
+                            }
                         }
                     }
                 } else {
                     Log.w(TAG, "Error getting documents.", task.exception)
                 }
             }
-    }
-    private fun writeDB(prodWrite: MutableMap<String, String>){
-        //Записываем в FireStore с ++ количества
-        prodWrite["count"] = (prodWrite["count"]?.toInt()?.plus(1)).toString()
-        db.collection("items")
-            .document(passViewModel.productId)
-            .set(prodWrite)
-            .addOnSuccessListener {
-            }
-            .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
-        binding.basketTv.text = ("${binding.basketTv.text} \n$prodWrite")
     }
 }

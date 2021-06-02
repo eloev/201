@@ -1,14 +1,11 @@
 package com.android.mpdev.vkrapp.ui.receipt
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -35,6 +32,8 @@ class ReceiptAddFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this).get(ReceiptViewModel::class.java)
+
         val view = inflater.inflate(R.layout.fragment_receipt_add, container, false)
         val receiptAddPrice: EditText = view.findViewById(R.id.receipt_add_price)
         val receiptAddDate: EditText = view.findViewById(R.id.receipt_add_time)
@@ -59,14 +58,18 @@ class ReceiptAddFragment : Fragment() {
         }
 
         receiptAdd.setOnClickListener {
-            if (receiptAddPrice.text.isBlank()) {
-                Toast.makeText(activity, getString(R.string.null_error), LENGTH_SHORT).show()
-            } else if (receiptViewModel.receiptInitialized) {
-                Toast.makeText(activity, getString(R.string.added_error), LENGTH_SHORT).show()
-            } else {
-                price = receiptAddPrice.text.toString()
-                updateUI(price)
-                clearFocus()
+            when {
+                receiptAddPrice.text.isBlank() -> {
+                    Toast.makeText(activity, getString(R.string.null_error), LENGTH_SHORT).show()
+                }
+                receiptViewModel.receiptInitialized -> {
+                    Toast.makeText(activity, getString(R.string.added_error), LENGTH_SHORT).show()
+                }
+                else -> {
+                    price = receiptAddPrice.text.toString()
+                    updateUI(price)
+                    clearFocus()
+                }
             }
         }
 
@@ -98,11 +101,6 @@ class ReceiptAddFragment : Fragment() {
             clearFocus()
         }
         return view
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ReceiptViewModel::class.java)
     }
 
     @SuppressLint("SimpleDateFormat")
