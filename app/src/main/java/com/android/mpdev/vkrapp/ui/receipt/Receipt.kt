@@ -8,7 +8,7 @@ import java.util.*
 data class Receipt(
     @PrimaryKey val id: UUID = UUID.randomUUID(),
     var date: String = "",
-    var price: Int = 200
+    var price: Int = 200,
+    var products : String = ""
 ) {
-
 }

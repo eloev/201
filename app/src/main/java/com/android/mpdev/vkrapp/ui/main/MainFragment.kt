@@ -1,6 +1,5 @@
 package com.android.mpdev.vkrapp.ui.main
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Html.fromHtml
 import android.view.LayoutInflater
@@ -9,14 +8,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.android.mpdev.vkrapp.R
-import com.google.firebase.auth.FirebaseAuth
 
 private const val TAG = "MainFragment"
 
@@ -38,6 +35,8 @@ class MainFragment : Fragment() {
         //логин
         val mainUserImg: ImageView = view.findViewById(R.id.main_user_img)
         val mainUsername: TextView = view.findViewById(R.id.main_username)
+
+        //выход из гуглАккаунта
         mainUserImg.setOnClickListener {
             //FirebaseAuth.getInstance().signOut()
         }
@@ -70,15 +69,11 @@ class MainFragment : Fragment() {
         val promoTexts: List<Int> = listOf(R.string.promo1s, R.string.promo2s, R.string.promo3s, R.string.promo4s)
 
 
-
-
-
-        @SuppressLint("SetTextI18n")
         fun selectedDots(position: Int) {
             for (i in dots.indices) {
                 if (i == position) {
                     dots[i]?.setTextColor(resources.getColor(R.color.colorPrimary))
-                    mainPromoTv.text = " " + getString(promoText[i])
+                    mainPromoTv.text = (" " + getString(promoText[i]))
                     mainPromoTvs.text = getString(promoTexts[i])
                 } else {
                     dots[i]?.setTextColor(resources.getColor(R.color.gray200))
@@ -86,11 +81,10 @@ class MainFragment : Fragment() {
             }
         }
 
-        @SuppressLint("SetTextI18n")
         fun setIndicators() {
             for (i in dots.indices) {
                 dots[i] = TextView(activity)
-                dots[i]?.text = "${fromHtml("&#9679;")}  "
+                dots[i]?.text = ("${fromHtml("&#9679;")}  ")
                 dots[i]?.textSize = 24F
                 layout.addView(dots[i])
             }

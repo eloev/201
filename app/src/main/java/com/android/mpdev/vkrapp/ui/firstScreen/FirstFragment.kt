@@ -16,7 +16,6 @@ class FirstFragment : Fragment() {
     private val readViewModel: FirstViewModel by activityViewModels()
 
     private lateinit var _binding: FragmentFirstBinding
-
     private val binding get() = _binding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import com.android.mpdev.vkrapp.databinding.FragmentBasketBinding
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,9 +16,6 @@ class BasketFragment : Fragment() {
 
     private lateinit var _binding: FragmentBasketBinding
     private val binding get() = _binding
-
-    private lateinit var viewModel: PassViewModel
-    private val passViewModel: PassViewModel by activityViewModels()
 
     private val db = FirebaseFirestore.getInstance()
 
@@ -38,11 +33,6 @@ class BasketFragment : Fragment() {
     ): View {
         _binding = FragmentBasketBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PassViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

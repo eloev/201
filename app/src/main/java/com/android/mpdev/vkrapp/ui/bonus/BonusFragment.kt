@@ -21,7 +21,6 @@ class BonusFragment : Fragment() {
     private lateinit var _binding: FragmentBonusBinding
     private val binding get() = _binding
 
-    private lateinit var viewModel: ReceiptViewModel
     private val receiptViewModel: ReceiptViewModel by activityViewModels()
 
     private lateinit var recyclerView: RecyclerView
@@ -48,11 +47,6 @@ class BonusFragment : Fragment() {
             viewLifecycleOwner,
             { receipts -> receipts?.let { updateUI(receipts) } }
         )
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ReceiptViewModel::class.java)
     }
 
     private fun updateUI(receipts: List<Receipt>) {

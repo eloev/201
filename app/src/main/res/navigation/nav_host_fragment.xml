@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/navigation_receiptAdd"
         android:name="com.android.mpdev.vkrapp.ui.receipt.ReceiptAddFragment"
-        android:label="@string/receipt_edit"
+        android:label="@string/receipt_add_title"
         tools:layout="@layout/fragment_receipt_add" />
     <fragment
         android:id="@+id/navigation_basket"

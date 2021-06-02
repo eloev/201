@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,45 +7,39 @@
     android:paddingTop="8dp"
     android:paddingEnd="8dp">
 
-    <EditText
+    <TextView
+        android:id="@+id/receipt_add_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/receipt_add_tv"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:background="@drawable/dotted_line" />
+
+    <TextView
         android:id="@+id/receipt_add_price"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:gravity="end"
         android:hint="@string/receipt_add_price"
-        android:inputType="number"
-        android:textSize="20sp"
-        android:importantForAutofill="no" />
+        android:textSize="20sp" />
 
-    <EditText
+    <TextView
         android:id="@+id/receipt_add_time"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:gravity="end"
         android:hint="@string/receipt_add_time"
-        android:inputType="date"
-        android:textSize="20sp"
-        android:importantForAutofill="no" />
+        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/receipt_add"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/receipt_add_title" />
-
-    <Button
-        android:id="@+id/receipt_edit"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/receipt_edit" />
-
-    <Button
-        android:id="@+id/receipt_delete"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/receipt_delete" />
-
-    <Button
-        android:id="@+id/receipt_all_delete"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/receipt_all_delete" />
+        android:layout_height="40dp"
+        android:gravity="end"
+        android:text="@string/receipt_address"
+        android:textSize="20sp" />
 </LinearLayout>

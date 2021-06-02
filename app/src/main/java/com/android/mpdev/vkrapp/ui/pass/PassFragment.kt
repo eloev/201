@@ -10,11 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mpdev.vkrapp.R
 import com.android.mpdev.vkrapp.databinding.FragmentPassBinding
+import com.android.mpdev.vkrapp.ui.receipt.ReceiptViewModel
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -25,19 +25,18 @@ class PassFragment : Fragment() {
     private lateinit var _binding: FragmentPassBinding
     private val binding get() = _binding
 
-    private lateinit var viewModel: PassViewModel
-    private val passViewModel: PassViewModel by activityViewModels()
+    private val receiptViewModel: ReceiptViewModel by activityViewModels()
 
     private lateinit var recyclerView: RecyclerView
     private var adapter: PassFragment.RecyclerAdapter? = RecyclerAdapter(emptyList())
 
     private var allPrice = 0
+    private var allProduct = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this).get(PassViewModel::class.java)
         _binding = FragmentPassBinding.inflate(inflater, container, false)
         recyclerView = binding.passRecyclerView
         recyclerView.layoutManager =
@@ -61,14 +60,14 @@ class PassFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        passViewModel.passIsVisible = true
+        receiptViewModel.passIsVisible = true
     }
 
 
     override fun onStop() {
         super.onStop()
-        passViewModel.passIsVisible = false
-        passViewModel.passIsInit = false
+        receiptViewModel.passIsVisible = false
+        receiptViewModel.passIsInit = false
     }
 
     private fun updateUI() {
@@ -116,8 +115,10 @@ class PassFragment : Fragment() {
         fun bind(product: Product) {
             this.product = product
             productName.text = product.id + " x" + product.count
-            allPrice += product.price.toInt() * product.count.toInt()
-            productPrice.text = (product.price.toInt() * product.count.toInt()).toString() + "₽"
+            val pPrice = product.price.toInt() * product.count.toInt()
+            allPrice += pPrice
+            productPrice.text = pPrice.toString() + "₽"
+            allProduct += product.id + " x" + product.count + " " + pPrice.toString() + "₽" + "\n"
             binding.passAllPrice.text = getString(R.string.pass_all_price) + " " + allPrice + " ₽"
             when (product.id) {
                 "J7" -> {
@@ -142,6 +143,8 @@ class PassFragment : Fragment() {
                     productImg.setImageResource(R.mipmap.picnic)
                 }
             }
+            receiptViewModel.passProduct = allProduct
+            receiptViewModel.passPrice = allPrice.toString()
         }
 
         override fun onClick(v: View) {

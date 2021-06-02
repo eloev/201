@@ -20,11 +20,14 @@ import androidx.navigation.ui.setupWithNavController
 import com.android.mpdev.vkrapp.databinding.ActivityMainBinding
 import com.android.mpdev.vkrapp.ui.firstScreen.FirstViewModel
 import com.android.mpdev.vkrapp.ui.pass.AddProduct
-import com.android.mpdev.vkrapp.ui.pass.PassViewModel
+import com.android.mpdev.vkrapp.ui.receipt.Receipt
+import com.android.mpdev.vkrapp.ui.receipt.ReceiptViewModel
 import com.android.mpdev.vkrapp.ui.secondScreen.SecondViewModel
 import com.android.mpdev.vkrapp.utils.NFCUtilManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import java.text.SimpleDateFormat
+import java.util.*
 
 private const val TAG = "MainActivity"
 
@@ -34,7 +37,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     private lateinit var readViewModel: FirstViewModel
     private lateinit var writeViewModel: SecondViewModel
-    private lateinit var passViewModel: PassViewModel
+    private lateinit var receiptViewModel: ReceiptViewModel
 
     private var nfcAdapter: NfcAdapter? = null
 
@@ -52,7 +55,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
         readViewModel = ViewModelProvider(this).get(FirstViewModel::class.java)
         writeViewModel = ViewModelProvider(this).get(SecondViewModel::class.java)
-        passViewModel = ViewModelProvider(this).get(PassViewModel::class.java)
+        receiptViewModel = ViewModelProvider(this).get(ReceiptViewModel::class.java)
 
         lifeCycleRegistry = LifecycleRegistry(this)
         lifeCycleRegistry.currentState = Lifecycle.State.CREATED
@@ -119,16 +122,22 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 val ndefMessage = ndefMessageArray?.get(0) as NdefMessage
                 val msg = String(ndefMessage.records[0].payload)
                 //идентификация входа
-                if (msg == "200" && passViewModel.passIsVisible) {
+                if (msg == "200" && receiptViewModel.passIsVisible) {
                     //onBackPressed()
                     readViewModel?.setTagMessage(getString(R.string.pass_success))
-                    passViewModel?.passIsInit = true
+                    receiptViewModel?.passIsInit = true
                 }
-                else if (msg == "200" && !passViewModel.passIsVisible){
+                else if (msg == "200" && !receiptViewModel.passIsVisible){
                     navController.navigate(R.id.navigation_pass)
                 }
                 else if(msg == "kitkat" || msg == "lipton" || msg == "milk"){
                     AddProduct(msg)
+                }
+                else if(msg == "201"){
+                    val sdf = SimpleDateFormat("HH:mm, dd.MM.yyyy")
+                    val dateNow = sdf.format(Date())
+                    val receipt = Receipt(UUID.randomUUID(), dateNow, receiptViewModel.passPrice.toInt(), receiptViewModel.passProduct)
+                    receiptViewModel.addReceipt(receipt)
                 }
                 else {
                     //показываем сообщение

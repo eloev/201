@@ -16,6 +16,11 @@ class ReceiptViewModel: ViewModel() {
     private val receiptRepository = ReceiptRepository.get()
     val receiptListLiveData = receiptRepository.getReceipts()
 
+    var passIsVisible = false
+    var passIsInit = false
+    var passProduct = ""
+    var passPrice = ""
+
     lateinit var receipt: Receipt
     var receiptInitialized = false
 

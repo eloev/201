@@ -18,7 +18,6 @@ class SecondFragment : Fragment() {
     private val writeViewModel: SecondViewModel by activityViewModels()
 
     private lateinit var _binding: FragmentSecondBinding
-
     private val binding get() = _binding
 
     private lateinit var dialog: Dialog
