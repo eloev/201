@@ -28,7 +28,7 @@ class PassFragment : Fragment() {
     private val receiptViewModel: ReceiptViewModel by activityViewModels()
 
     private lateinit var recyclerView: RecyclerView
-    private var adapter: PassFragment.RecyclerAdapter? = RecyclerAdapter(emptyList())
+    private var adapter: RecyclerAdapter? = RecyclerAdapter(emptyList())
 
     private var allPrice = 0
     private var allProduct = ""
@@ -111,15 +111,14 @@ class PassFragment : Fragment() {
             itemView.setOnClickListener(this)
         }
 
-        @SuppressLint("SetTextI18n")
         fun bind(product: Product) {
             this.product = product
-            productName.text = product.id + " x" + product.count
+            productName.text = (product.id + " x" + product.count)
             val pPrice = product.price.toInt() * product.count.toInt()
             allPrice += pPrice
-            productPrice.text = pPrice.toString() + "₽"
+            productPrice.text = (pPrice.toString() + "₽")
             allProduct += product.id + " x" + product.count + " " + pPrice.toString() + "₽" + "\n"
-            binding.passAllPrice.text = getString(R.string.pass_all_price) + " " + allPrice + " ₽"
+            binding.passAllPrice.text = (getString(R.string.pass_all_price) + " " + allPrice + " ₽")
             when (product.id) {
                 "J7" -> {
                     productImg.setImageResource(R.mipmap.j7_juice)

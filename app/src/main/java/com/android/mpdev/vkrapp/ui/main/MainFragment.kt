@@ -19,8 +19,6 @@ private const val TAG = "MainFragment"
 
 class MainFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +32,7 @@ class MainFragment : Fragment() {
 
         //логин
         val mainUserImg: ImageView = view.findViewById(R.id.main_user_img)
-        val mainUsername: TextView = view.findViewById(R.id.main_username)
+        //val mainUsername: TextView = view.findViewById(R.id.main_username)
 
         //выход из гуглАккаунта
         mainUserImg.setOnClickListener {
@@ -63,8 +61,10 @@ class MainFragment : Fragment() {
         val mainPromoTv: TextView = view.findViewById(R.id.main_promo_tv)
         val mainPromoTvs: TextView = view.findViewById(R.id.main_promo_tvs)
 
+        //точки под viewpager
         val layout: LinearLayout = view.findViewById(R.id.main_promo_dots)
         val dots: Array<TextView?> = arrayOfNulls(4)
+
         val promoText: List<Int> = listOf(R.string.promo1, R.string.promo2, R.string.promo3, R.string.promo4)
         val promoTexts: List<Int> = listOf(R.string.promo1s, R.string.promo2s, R.string.promo3s, R.string.promo4s)
 
@@ -99,11 +99,6 @@ class MainFragment : Fragment() {
 
         setIndicators()
         return view
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
     private class ViewPagerAdapter(private val images: List<Image>) :

@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp">
 
     <ImageView
-        android:id="@+id/main_promo_img"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@mipmap/promo1"
+        android:id="@+id/catalog_img"
+        android:layout_width="135dp"
+        android:layout_height="180dp"
+        app:srcCompat="@mipmap/cat_promo1"
         android:contentDescription="@string/cd_promo_img" />
 </LinearLayout>

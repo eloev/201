@@ -1,24 +1,18 @@
 package com.android.mpdev.vkrapp.ui.receipt
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mpdev.vkrapp.R
 import com.android.mpdev.vkrapp.databinding.FragmentReceiptBinding
-import java.util.*
 
 class ReceiptFragment : Fragment() {
 
@@ -69,11 +63,11 @@ class ReceiptFragment : Fragment() {
         init {
             itemView.setOnClickListener(this)
         }
-        @SuppressLint("SetTextI18n")
+
         fun bind(receipt: Receipt){
             this.receipt = receipt
             receiptItemDate.text = receipt.date
-            receiptItemPrice.text = (receipt.price).toString() + "₽"
+            receiptItemPrice.text = ((receipt.price).toString() + "₽")
         }
 
         override fun onClick(v: View) {

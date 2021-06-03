@@ -71,7 +71,8 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 R.id.navigation_pass,
                 R.id.navigation_receipt,
                 R.id.navigation_bonus,
-                R.id.navigation_main
+                R.id.navigation_main,
+                R.id.navigation_catalog
             ), drawerLayout
         )
         toolbarMain.setupWithNavController(navController, appBarConfiguration)

@@ -53,16 +53,19 @@
     <string name="promo2s">Баллов нашим частым гостям</string>
     <string name="promo3s">На категорию "Вкусный Хлеб"</string>
     <string name="promo4s">За уголь для шашлыка</string>
+    <string name="kitkat">kitkat</string>
     //
     <string name="bonus_add">Добавлено: </string>
     <string name="bonus_all">Всего: </string>
     <string name="bonus_counter"> баллов</string>
-    //
     <string name="login_hello">Привет!</string>
     <string name="sign_in_with_google">Войти с Google</string>
     <string name="error_sign_in">Войти не удалось</string>
     <string name="basket_title">Управление корзиной</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
+    <string name="catalog_title">Каталог</string>
+    <string name="catalog_promo">Спецпредложения</string>
+    <string name="catalog_tv">Товары</string>
 
 </resources>

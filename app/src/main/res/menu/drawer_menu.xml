@@ -10,6 +10,10 @@
             android:id="@+id/navigation_main"
             android:title="@string/title_main" />
         <item
+            android:icon="@drawable/ic_catalog"
+            android:id="@+id/navigation_catalog"
+            android:title="@string/catalog_title" />
+        <item
             android:icon="@drawable/ic_basket"
             android:id="@+id/navigation_pass"
             android:title="@string/title_pass" />
