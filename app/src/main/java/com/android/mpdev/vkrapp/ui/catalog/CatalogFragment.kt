@@ -13,9 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mpdev.vkrapp.R
 import com.android.mpdev.vkrapp.databinding.FragmentCatalogBinding
-import com.android.mpdev.vkrapp.ui.main.MainFragment
 import com.android.mpdev.vkrapp.ui.pass.Product
-import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 
 private const val TAG = "CatalogFragment"
@@ -27,8 +25,6 @@ class CatalogFragment : Fragment() {
 
     private lateinit var prodRecyclerView: RecyclerView
     private var prodAdapter: ProdRecycler? = ProdRecycler(emptyList())
-
-    private var adapter: ProdRecycler? = ProdRecycler(emptyList())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

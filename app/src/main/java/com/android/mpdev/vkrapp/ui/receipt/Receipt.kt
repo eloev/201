@@ -10,5 +10,4 @@ data class Receipt(
     var date: String = "",
     var price: Int = 200,
     var products : String = ""
-) {
-}
+)

@@ -1,6 +1,5 @@
 package com.android.mpdev.vkrapp.ui.pass
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
