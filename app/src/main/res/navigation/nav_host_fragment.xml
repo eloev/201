@@ -50,4 +50,9 @@
         android:name="com.android.mpdev.vkrapp.ui.catalog.CatalogFragment"
         android:label="@string/catalog_title"
         tools:layout="@layout/fragment_catalog" />
+    <activity
+        android:id="@+id/navigation_ar"
+        android:name="com.android.mpdev.vkrapp.ui.ar.ARActivity"
+        android:label="@string/ar_title"
+        tools:layout="@layout/activity_ar" />
 </navigation>

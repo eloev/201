@@ -14,6 +14,10 @@
             android:id="@+id/navigation_catalog"
             android:title="@string/catalog_title" />
         <item
+            android:icon="@drawable/ic_ar"
+            android:id="@+id/navigation_ar"
+            android:title="@string/ar_title" />
+        <item
             android:icon="@drawable/ic_basket"
             android:id="@+id/navigation_pass"
             android:title="@string/title_pass" />
@@ -38,10 +42,6 @@
                 android:icon="@drawable/ic_write"
                 android:id="@+id/navigation_second"
                 android:title="@string/title_write" />
-            <item
-                android:icon="@drawable/ic_receipt_add"
-                android:id="@+id/navigation_receiptAdd"
-                android:title="@string/receipt_add_title" />
             <item
                 android:icon="@drawable/ic_pass"
                 android:id="@+id/navigation_basket"

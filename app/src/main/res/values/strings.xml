@@ -67,5 +67,6 @@
     <string name="catalog_title">Каталог</string>
     <string name="catalog_promo">Спецпредложения</string>
     <string name="catalog_tv">Товары</string>
+    <string name="ar_title">AR-Режим</string>
 
 </resources>
