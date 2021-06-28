@@ -1,6 +1,5 @@
 package com.android.mpdev.vkrapp.ui.bonus
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -53,10 +52,9 @@ class BonusFragment : Fragment() {
         recyclerView.adapter = adapter
     }
 
-    @SuppressLint("SetTextI18n")
     fun bonusCount(allBonus: Int) {
         binding.bonusAll.text =
-            getString(R.string.bonus_all) + "  " + allBonus.toString() + "  " + getString(R.string.bonus_counter)
+            (getString(R.string.bonus_all) + "  " + allBonus.toString() + "  " + getString(R.string.bonus_counter))
     }
 
     private inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -67,11 +65,10 @@ class BonusFragment : Fragment() {
         private val bonusItem: TextView = itemView.findViewById(R.id.bonus_item)
 
 
-        @SuppressLint("SetTextI18n")
         fun bind(receipt: Receipt) {
             this.receipt = receipt
             bonusItemDate.text = receipt.date
-            bonusItem.text = " ${receipt.price / 10}"
+            bonusItem.text = (" ${receipt.price / 10}")
             allBonus += receipt.price / 10
             bonusCount(allBonus)
         }

@@ -3,9 +3,13 @@
     package="com.android.mpdev.vkrapp">
 
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
         android:name="android.hardware.nfc"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.ar"
         android:required="true" />
 
     <application
@@ -16,8 +20,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Vkrapp">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="userPortrait">>
+        <activity android:name=".ui.ar.ARActivity"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="userPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,6 +38,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignInActivity" />
+
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
     </application>
 
 </manifest>
